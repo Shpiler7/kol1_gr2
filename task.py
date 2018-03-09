@@ -20,3 +20,40 @@
 #When you are done upload this code to your github repository. 
 #The whole repository MUST be a fork from https://github.com/mwmajew/kol1_gr2
 #Good Luck
+import random
+import numpy as np
+class Plane(object):
+    angle = 90
+    def __init__(self, name):
+        self.name = name
+    def __str__(self):
+        return self.name
+    def tiltCorrection(self):
+        self.angle = 90
+    def currOrientation(self):
+        print self.angle
+    def turbulence(self):
+        mu = 0
+        sigma = 0.1
+        s = np.random.normal(mu, sigma, 1000)
+        self.angle = self.angle - random.randint(1, 10)
+
+
+plane = Plane("plane")
+print(plane)
+print("Start orietation:"),
+plane.currOrientation()
+i = 0
+while True:
+    print("Turbulence"),
+    plane.turbulence()
+    print("Current orietation:"),
+    plane.currOrientation()
+    print("Correcting:"),
+    plane.tiltCorrection()
+    print("Corrected:"),
+    plane.currOrientation()
+    print("Contiunue? (Type 'stop' to finish)")
+    text = raw_input()
+    if text == "stop":
+        break
