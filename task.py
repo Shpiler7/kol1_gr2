@@ -27,20 +27,15 @@ from Environment import Environment
 if __name__ == "__main__":
 	plane = Plane("plane")
 	env = Environment()
-	print(plane)
-	print("Start orietation:"),
 	plane.currOrientation()
-	i = 0
 	while True:
-		print("Turbulence"),
 		env.turbulence(plane)
-		print("Current orietation:"),
+		time.sleep(1)
 		plane.currOrientation()
-		print("Correcting:"),
 		plane.tiltCorrection()
-		print("Corrected:"),
-		plane.currOrientation()
 		time.sleep(2)
+		plane.currOrientation()
+		time.sleep(1)
    
     
     
